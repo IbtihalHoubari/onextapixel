@@ -7,10 +7,6 @@ body{
     background-color: #f6f9fc;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.container{
-    width: calc(100% - 120px);
-    margin: auto;
-}
 .row{
     display: flex;
     justify-content: space-between;
@@ -23,6 +19,14 @@ body{
     background-color: #32325d;
     height: 85px;
     padding: 25px 0;
+}
+.containerrow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 120px);
+    margin: auto;
+    flex-wrap: wrap;
 }
 a{
     text-decoration: none;
@@ -41,27 +45,50 @@ ul{
     font-weight: 550;
     font-size: 14px;
 }
-@media (max-width:768px){
-    .navbar{
-        display: none;
-    }
-    .designs .row .cards .design-card {
-        width: calc(50% - 15px);
-    }
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
+.dropdown {
+    position: relative;
+    display: none;
 }
-@media (max-width:412px){
-    .designs .row .cards .design-card {
-        width: 100%;
-    }
+
+.dropbutton {
+    background-color: #32325d;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 60px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+.dropdown-list a {
+    display: block;
+    padding: 10px 2px;
+    color: #333;
+}
+.dropdown:hover .dropdown-list {
+    display: block;
+    opacity: 1;
+}
+.dropdown-list a:hover {
+    background-color: #e0e0e0;
+    color: #333;
 }
 .title{
+    width: calc(100% - 120px);
     background-color: #fff;
     padding: 30px;
-    margin: 25px 0;
+    margin: 56px;
 }
 .designs{
     padding-bottom: 40px;
@@ -69,6 +96,8 @@ ul{
     flex-wrap: wrap;
 }
 .designs .cards{
+    width: calc(100% - 120px);
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -88,14 +117,11 @@ ul{
 }
 .designs .cards .design-card .details h2{
     font-size: 23px;
-    width: 90%;
 }
 .designs .cards .design-card .details p{
     color: #565555;
     margin-top: 15px;
     font-size: 15px;
-    width: 90%;
-
 }
 .footer{
     background-color: #32325d;
@@ -137,28 +163,29 @@ ul{
         font-weight: 550;
         font-size: 14px;
 }
-.dropdown {
-    position: relative;
-    display: none;
-}
 
-.dropbutton {
-    background-color: #32325d;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+@media (max-width:768px){
+    .navbar{
+        display: none;
+    }
+    .designs .row .cards .design-card {
+        width: calc(50% - 15px);
+    }
+    .dropdown {
+        display: inline-block;
+    }
 }
-
-.dropdown-list {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 60px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+@media (max-width:670px){
+    .designs .cards .design-card .details h2{
+        font-size: 20px;
+    }
+    .designs .cards .design-card .details p{
+        margin-top: 10px;
+        font-size: 10px;
+    }
 }
-.dropdown:hover .dropdown-list {
-    display: block;
+@media (max-width:500px){
+    .designs .row .cards .design-card {
+        width: 100%;
+    }
 }
