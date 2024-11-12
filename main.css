@@ -22,7 +22,7 @@ body{
 
 .header a{
     text-decoration: none;
-    color: #7c7cd4;
+    color: #8789cd;
 }
 ul{
     list-style-type: none;
@@ -30,7 +30,7 @@ ul{
 .header .active{
     color: aliceblue;
 }
-.navbar ul{
+.navbar .navbar-desktop{
     display: flex;
     flex-wrap: wrap;
     gap: 17px;
@@ -38,12 +38,11 @@ ul{
     font-size: 14px;
     padding-right: 56px;
 }
-.dropdown {
+.navbar-mobile {
     position: relative;
     display: none;
     padding-right: 56px;
 }
-
 .dropbutton {
     background-color: #32325d;
     color: white;
@@ -52,7 +51,6 @@ ul{
     border: none;
     cursor: pointer;
 }
-
 .dropdown-list {
     display: none;
     position: absolute;
@@ -70,7 +68,7 @@ ul{
     padding: 10px 2px;
     color: #333;
 }
-.dropdown:hover .dropdown-list {
+.navbar-mobile:hover .dropdown-list {
     display: block;
     opacity: 1;
 }
@@ -144,29 +142,28 @@ ul{
     height: 15px;
     box-sizing: content-box;
 }
-.footer .footer-end{
-    display: flex;
-    
-}
-.footer .footer-end ul{
+
+.footer .footer-end {
         display: flex;
         flex-wrap: wrap;
         gap: 17px;
         font-weight: 550;
         padding-right: 56px; 
 }
-
+.navbar-mobile{
+    display: none;
+}
 @media (max-width:768px){
-    .navbar{
+    .navbar .navbar-desktop{
         display: none;
     }
-    .dropdown {
+    .navbar-mobile{
         display: inline-block;
     }
     .blogs-container .blogs-card{
         width: 49%;
     }
-    .blogs-container > *:nth-child(n+2) {
+    .blogs-container > *:nth-child(n+3) {
         margin-top: 2%;
     }
 }
@@ -186,20 +183,24 @@ ul{
     .blogs-container .blogs-card {
         width: 100%;
     } 
+    .blogs-container > *:nth-child(n+2) {
+        margin-top: 2%;
+    }
+    .footer{
+        flex-direction: column;
+    }
+    .footer .footer-end {
+        padding-left: 56px;
+        padding-top: 10px;
+    }
 }
 @media (max-width:400px){
     .header{
         flex-direction: column;
     }
-    .dropdown {
+    .navbar-mobile {
         padding-left: 56px;
     }
-    .footer{
-        flex-direction: column;
-    }
-    .footer .footer-end ul{
-        padding-left: 56px;
-        padding-top: 10px;
-    }
+    
 
 }
